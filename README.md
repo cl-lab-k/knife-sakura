@@ -6,6 +6,8 @@ Knife Sakura
 
 This is the Knife plugin for Sakura Cloud. This plugin gives knife the ability to create, bootstrap, and manage Sakura Cloud instances.
 
+Knife Sakura is based on [Knife EC2](https://github.com/opscode/knife-ec2).
+
 
 Installation
 ------------
