@@ -59,10 +59,10 @@ chance you already have a file with these keys somewhere in this format:
       "accessTokenSecret": "Your Sakura Cloud Access Secret"
     }
         
-        In this case, you can point the <tt>.sacloudcfg.json</tt> option to
-        this file in your <tt>knife.rb</tt> file, like so:
+In this case, you can point the <tt>.sacloudcfg.json</tt> option to
+this file in your <tt>knife.rb</tt> file, like so:
         
-            knife[:sakuracloud_credential_file] = "/path/to/credentials/file/in/above/format"
+    knife[:sakuracloud_credential_file] = "/path/to/credentials/file/in/above/format"
 
 
 Subcommands
