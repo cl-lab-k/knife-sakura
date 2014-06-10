@@ -24,14 +24,13 @@ class Chef
       include Knife::SakuraBase
 
 
-     deps do
+      deps do
         require 'fog'
         require 'readline'
         require 'chef/json_compat'
         require 'chef/knife/bootstrap'
         Chef::Knife::Bootstrap.load_deps
       end
-     end
 
       banner "knife sakura server create (options)"
 
