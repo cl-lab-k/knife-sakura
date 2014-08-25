@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
 
   s.files        = `git ls-files`.split("\n")
 
+  s.add_dependency 'chef'
   s.add_dependency 'fog', '>= 1.21.0'
 
   s.require_paths = ['lib']

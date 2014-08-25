@@ -57,6 +57,12 @@ class Chef
         :description => "The SakuraCloud SSH key id",
         :proc => Proc.new { |key| Chef::Config[:knife][:sakuracloud_ssh_key] = key }
 
+      option :bootstrap,
+        :long => "--[no-]bootstrap",
+        :description => "Bootstrap after create server, true by default.",
+        :boolean => true,
+        :default => true
+
       #
       # chef
       #
@@ -194,7 +200,7 @@ class Chef
             bootstrap_ip_address = @server.interfaces.first['IPAddress']
             msg_pair("Public IP Address", bootstrap_ip_address)
 
-            bootstrap_node(@server, bootstrap_ip_address).run
+            bootstrap_node(@server, bootstrap_ip_address).run if options[:bootstrap]
           rescue Exception
             body = Fog::JSON.decode( $!.response.body )
             puts "#{body['status']}: #{body['error_msg']}"
