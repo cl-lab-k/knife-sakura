@@ -23,6 +23,15 @@ class Chef
 
       include Knife::SakuraBase
 
+
+      deps do
+        require 'fog'
+        require 'readline'
+        require 'chef/json_compat'
+        require 'chef/knife/bootstrap'
+        Chef::Knife::Bootstrap.load_deps
+      end
+
       banner "knife sakura server create (options)"
 
       #
@@ -202,6 +211,7 @@ class Chef
 
             bootstrap_node(@server, bootstrap_ip_address).run if options[:bootstrap]
           rescue Exception
+            puts $!.message
             body = Fog::JSON.decode( $!.response.body )
             puts "#{body['status']}: #{body['error_msg']}"
           end
